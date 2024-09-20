@@ -1,0 +1,352 @@
+
+# Terminal Workshop with GDSC Rochester
+Krish Jain
+
+*Welcome!*
+**In today’s session, we’ll master the Unix terminal. You’ll leave with the tools and confidence to navigate, automate, and manage your system like a pro.**
+
+---
+
+## Slide 1: Workshop Overview
+
+- Introduction to the Unix Shell
+- Navigating the File System
+- File Operations & Permissions
+- Process Management & Monitoring
+- Networking Tools
+- Shell Scripting Basics
+- Demos & Practical Examples
+- Q&A Session
+
+---
+
+## Slide 2: What is the Unix Shell?
+
+- **Unix Shell**: Command-line interface for interacting with the OS.
+    - Most common shells: **Bash**, **Zsh**, **Fish**.
+
+---
+
+## Slide 3: Kernel-Shell Interaction
+
+- The shell sends commands to the OS kernel.
+- Shell commands interact with:
+  - Files, processes, system resources.
+  
+- **Why use the shell?**
+  - Faster than GUI for many tasks.
+  - Scripting allows automation of complex tasks.
+  - Remote control over SSH.
+
+---
+
+## Slide 4: Basic Shell Commands
+
+- **pwd**: Print the current directory (where you are)
+    ```
+    $ pwd
+    /home/krish
+    ```
+
+- **ls**: List contents of a directory
+    - Common options:
+        - `-l`: Long format (detailed list)
+        - `-a`: Show hidden files
+        - `-h`: Human-readable sizes
+    ```
+    $ ls -lah
+    ```
+
+---
+
+## Slide 5: Changing Directories
+
+- **cd**: Change the current directory
+    - Go to a specific folder:
+    ```
+    $ cd /home/krish/documents
+    ```
+    - Go up one directory:
+    ```
+    $ cd ..
+    ```
+
+---
+
+## Slide 6: Creating and Managing Files
+
+- **mkdir**: Make a new directory
+    ```
+    $ mkdir new_folder
+    ```
+
+- **touch**: Create a new file
+    ```
+    $ touch file.txt
+    ```
+
+---
+
+## Slide 7: Removing Files and Directories
+
+- **rm**: Remove files or directories
+    - Remove a file:
+    ```
+    $ rm file.txt
+    ```
+    - Remove a directory and its contents:
+    ```
+    $ rm -rf new_folder
+    ```
+
+- **cp**: Copy files and directories
+    - Copy a file to another directory:
+    ```
+    $ cp file.txt /path/to/destination/
+    ```
+
+- **mv**: Move (or rename) files and directories
+    - Rename a file:
+    ```
+    $ mv oldname.txt newname.txt
+    ```
+
+---
+
+## Slide 8: Permissions & Ownership (Part 1)
+
+- **File Permissions**: Control who can read, write, or execute a file.
+    - **r**: read, **w**: write, **x**: execute.
+
+---
+
+## Slide 9: Permissions & Ownership (Part 2)
+
+- **chmod**: Change file permissions
+    - Numeric method:
+        - 7 = read/write/execute, 6 = read/write, 5 = read/execute, 4 = read-only.
+    ```
+    $ chmod 755 script.sh
+    ```
+
+---
+
+## Slide 10: Process Management (Part 1)
+
+- **ps**: List running processes
+    - Shows process IDs (PIDs), users, CPU/memory usage.
+    ```
+    $ ps aux
+    ```
+
+---
+
+## Slide 11: Process Management (Part 2)
+
+- **top**: Real-time system monitor
+    - Displays active processes and system resource usage.
+    ```
+    $ top
+    ```
+
+---
+
+## Slide 12: Managing Processes
+
+- **kill**: Terminate a process by its PID
+    - Find the PID using `ps` or `top`, then terminate it:
+    ```
+    $ kill -9 <PID>
+    ```
+
+- **Demo**: Open multiple processes and kill them.
+    - Start `sleep` command:
+    ```
+    $ sleep 1000 &
+    ```
+
+---
+
+## Slide 13: Networking Tools (Part 1)
+
+- **ping**: Test connectivity to a remote server
+    ```
+    $ ping google.com
+    ```
+
+---
+
+## Slide 14: Networking Tools (Part 2)
+
+- **ifconfig**: View network interface configurations
+    ```
+    $ ifconfig
+    ```
+
+---
+
+## Slide 15: Secure File Transfer
+
+- **scp**: Securely copy files to a remote server over SSH
+    - Copy a file to a remote machine:
+    ```
+    $ scp file.txt user@remote:/path/to/destination
+    ```
+
+---
+
+## Slide 16: Shell Scripting Basics (Part 1)
+
+- **What is a shell script?**
+    - A series of shell commands in a file that can be executed in sequence.
+    - Great for automating repetitive tasks.
+
+---
+
+## Slide 17: Shell Scripting Basics (Part 2)
+
+- **Write a script**:
+    - Open a new file:
+    ```
+    $ nano my_script.sh
+    ```
+
+---
+
+## Slide 18: Writing a Script (Part 2)
+
+    - Add this content:
+    ```
+    #!/bin/bash
+    echo "Creating directories and files..."
+    mkdir demo_folder
+    cd demo_folder
+    touch demo_file.txt
+    echo "File created!" > demo_file.txt
+    cat demo_file.txt
+    ```
+
+---
+
+## Slide 19: Making a Script Executable
+
+- **Make it executable**:
+    ```
+    $ chmod +x my_script.sh
+    ```
+
+---
+
+## Slide 20: Running the Script
+
+- **Run the script**:
+    ```
+    $ ./my_script.sh
+    ```
+
+- **Demo**: Walk through writing, editing, and running the script live.
+
+---
+
+## Slide 21: Redirection and Pipes (Part 1)
+
+- **Redirect output**:
+    - `>`: Redirect output to a file (overwrites existing file):
+    ```
+    $ echo "Hello, World!" > hello.txt
+    ```
+
+---
+
+## Slide 22: Redirection and Pipes (Part 2)
+
+    - `>>`: Append output to an existing file:
+    ```
+    $ echo "Appending this line." >> hello.txt
+    ```
+
+---
+
+## Slide 23: Piping Output
+
+- **Pipe output**: Pass the output of one command to another:
+    ```
+    $ ls -lah | grep ".txt"
+    ```
+
+---
+
+## Slide 24: Useful Tips and Tricks (Part 1)
+
+- **Tab Completion**: Press `Tab` to auto-complete commands or file names.
+- **History**:
+    - Use `!!` to run the last command:
+    ```
+    $ !!
+    ```
+
+---
+
+## Slide 25: Useful Tips and Tricks (Part 2)
+
+    - Use `!n` to run command `n` from history:
+    ```
+    $ !45
+    ```
+
+---
+
+## Slide 26: Hands-On Practice (Part 1)
+
+- **Goal**: Navigate, create files, change permissions, manage processes, and run scripts.
+  
+---
+
+## Slide 27: Hands-On Practice (Part 2)
+
+- **Exercise**:
+    - **Task 1**: Create a directory `test_folder`, then create a file `example.txt` inside it.
+    ```
+    $ mkdir test_folder
+    $ touch test_folder/example.txt
+    ```
+
+---
+
+## Slide 28: Hands-On Practice (Part 3)
+
+    - **Task 2**: Change the permissions of `example.txt` to allow everyone to read and execute the file.
+    ```
+    $ chmod 755 test_folder/example.txt
+    ```
+
+---
+
+## Slide 29: Hands-On Practice (Part 4)
+
+    - **Task 3**: Write a shell script that prints “Hello World!” and creates a file `output.txt` with the content “Demo complete.”
+    ```
+    #!/bin/bash
+    echo "Hello, World!"
+    echo "Demo complete." > output.txt
+    ```
+
+---
+
+## Slide 30: Q&A and Wrap-Up (Part 1)
+
+- **Discussion**:
+    - Any questions or specific use cases you'd like to cover?
+
+---
+
+## Slide 31: Q&A and Wrap-Up (Part 2)
+
+- **Summary**:
+    - Navigated the filesystem, manipulated files, managed processes, and wrote basic shell scripts.
+
+- **Next Steps**:
+    - Practice with advanced shell commands and scripts.
+    - Explore Unix tools like `awk`, `sed`, `grep`, and `find`.
+    
+- **Thank you for attending!**
